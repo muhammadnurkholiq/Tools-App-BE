@@ -41,11 +41,7 @@ exports.addTodo = async (req, res) => {
 // get todos
 exports.getTodos = async (req, res) => {
   try {
-    const dataTodos = await todo.findAll({
-      attributes: {
-        exclude: ["createdAt", "updatedAt"],
-      },
-    });
+    const dataTodos = await todo.findAll();
 
     if (!dataTodos) {
       return res.status(200).send({
